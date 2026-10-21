@@ -1,0 +1,6 @@
+stage,policy,delta_net,sim_low,sim_high
+M1_sampling_projection,R1,-0.09375,-0.09375,-0.09375
+M1_sampling_projection,R2,-0.194546875,-0.25,-0.140625
+M2_score_policy,R1,-0.09375,-0.09375,-0.09375
+M2_score_policy,R2,-0.233734375,-0.2578125,-0.19121093750000018
+M2_score_policy,RCA,-0.09375,-0.09375,-0.09375

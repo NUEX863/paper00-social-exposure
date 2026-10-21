@@ -1,0 +1,64 @@
+{
+  "version": "era-heldout-runtime-v1",
+  "design": "configs/era_submission_v1.json",
+  "created_utc": "2026-10-19T07:25:24.731012+00:00",
+  "installed_only": true,
+  "amendment": "Frozen full profile and model-specific v2 token readout; model digests and prompt-template hashes retained.",
+  "profile": "full",
+  "modules": [
+    "heldout_items"
+  ],
+  "model_order": [
+    "qwen3_8b",
+    "mistral7b_v03"
+  ],
+  "server_version": "0.40.6",
+  "base_url": "http://127.0.0.1:11434",
+  "models": {
+    "qwen3_8b": {
+      "tag": "qwen3:8b-q4_K_M",
+      "digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "qwen3",
+        "families": [
+          "qwen3"
+        ],
+        "parameter_size": "8.2B",
+        "quantization_level": "Q4_K_M",
+        "context_length": 40960,
+        "embedding_length": 4096,
+        "runner": "ggml"
+      },
+      "thinking": false,
+      "template_sha256": "ae370d884f108d16e7cc8fd5259ebc5773a0afa6e078b11f4ed7e39a27e0dfc4",
+      "show_file": "runs/model_setup/prelaunch_770f0560759a4097a950cc18ae1e5c29/qwen3_8b_show.json"
+    },
+    "mistral7b_v03": {
+      "tag": "mistral:7b-instruct-v0.3-q4_K_M",
+      "digest": "6577803aa9a036369e481d648a2baebb381ebc6e897f2bb9a766a2aa7bfbc1cf",
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "llama",
+        "families": [
+          "llama"
+        ],
+        "parameter_size": "7.2B",
+        "quantization_level": "Q4_K_M",
+        "context_length": 32768,
+        "embedding_length": 4096,
+        "runner": "ggml"
+      },
+      "thinking": null,
+      "template_sha256": "1ff5b64b61b9a63146475a24f70d3ca2fd6fdeec44247987163479968896fc0b",
+      "show_file": "runs/model_setup/prelaunch_770f0560759a4097a950cc18ae1e5c29/mistral7b_v03_show.json"
+    }
+  },
+  "logprob_interpretation": "Model-specific first-token pair score remains secondary; current server 0.40.6 has not been newly source-audited. Primary sampling unchanged.",
+  "readout_policy": "configs/era_readout_policy_v2.json",
+  "readout_policy_sha256": "38f60561b3ad111b1ba83b9d16da7b4c9ee1606f4e283cc4ca41d41788b70ae3",
+  "planned_calls": 2400,
+  "analysis_plan": "configs/era_heldout_analysis_v1.json"
+}

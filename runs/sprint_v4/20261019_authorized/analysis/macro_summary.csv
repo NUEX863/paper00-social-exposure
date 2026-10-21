@@ -1,0 +1,11 @@
+stage,policy,network,final_mean,final_sim_low,final_sim_high,speed_mean_rounds_1_to_3,between_graph_trial_final_mean_range
+M1_sampling_projection,R1,lattice,0.90625,0.90625,0.90625,0.59375,0.0
+M1_sampling_projection,R1,random,1.0,1.0,1.0,0.8098958333333334,0.0
+M1_sampling_projection,R2,lattice,0.642671875,0.59375,0.6953125,0.4154583333333334,0.13271875
+M1_sampling_projection,R2,random,0.83721875,0.8046875,0.859375,0.6565885416666666,0.0009375000000000355
+M2_score_policy,R1,lattice,0.90625,0.90625,0.90625,0.5936302083333332,0.0
+M2_score_policy,R1,random,1.0,1.0,1.0,0.8098489583333335,0.0
+M2_score_policy,R2,lattice,0.606921875,0.5859375,0.6484375,0.40106770833333333,0.20859375000000002
+M2_score_policy,R2,random,0.84065625,0.8203125,0.8671875,0.65615625,0.02418750000000003
+M2_score_policy,RCA,lattice,0.90625,0.90625,0.90625,0.59375,0.0
+M2_score_policy,RCA,random,1.0,1.0,1.0,0.8098958333333334,0.0

@@ -1,0 +1,3 @@
+# Preserve exact frozen bytes and their SHA-256 checksums on every OS.
+* -text
+*.png binary

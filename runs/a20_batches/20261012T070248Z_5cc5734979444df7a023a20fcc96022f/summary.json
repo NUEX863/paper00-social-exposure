@@ -1,0 +1,86 @@
+{
+  "completed_trials": 50,
+  "trajectory_count": 200,
+  "conditions": {
+    "lattice/ic": {
+      "mean_final_fraction": 0.15453125,
+      "sd_final_fraction": 0.06869580569224465,
+      "ci95_mean_final_fraction": [
+        0.13593359375,
+        0.17391015625
+      ],
+      "unique_trajectory_count": 49,
+      "invariant_observed_trajectory": false
+    },
+    "lattice/threshold2": {
+      "mean_final_fraction": 1.0,
+      "sd_final_fraction": 0.0,
+      "ci95_mean_final_fraction": [
+        1.0,
+        1.0
+      ],
+      "unique_trajectory_count": 1,
+      "invariant_observed_trajectory": true
+    },
+    "random/ic": {
+      "mean_final_fraction": 0.3203125,
+      "sd_final_fraction": 0.1580492705041303,
+      "ci95_mean_final_fraction": [
+        0.2787421875,
+        0.3665703125
+      ],
+      "unique_trajectory_count": 49,
+      "invariant_observed_trajectory": false
+    },
+    "random/threshold2": {
+      "mean_final_fraction": 0.48125,
+      "sd_final_fraction": 0.46481929761187624,
+      "ci95_mean_final_fraction": [
+        0.3538984375,
+        0.6090742187499999
+      ],
+      "unique_trajectory_count": 35,
+      "invariant_observed_trajectory": false
+    }
+  },
+  "paired_final_fraction_differences": {
+    "ic": {
+      "mean_lattice_minus_random": -0.16578125,
+      "ci95": [
+        -0.21328515625000002,
+        -0.12171875000000001
+      ]
+    },
+    "threshold2": {
+      "mean_lattice_minus_random": 0.51875,
+      "ci95": [
+        0.39092578125000005,
+        0.6461015625
+      ]
+    }
+  },
+  "inference": {
+    "method": "percentile bootstrap of whole paired trial IDs",
+    "resamples": 2000,
+    "confidence_level": 0.95,
+    "seed": 11389691886185530846,
+    "scope": "Fixed p and lattice; connected outputs of the finite-swap generator.",
+    "limitations": [
+      "Observed deterministic duplicates are not independent confirmations.",
+      "Collapsed intervals do not establish certainty beyond this design.",
+      "Graph, center and IC variation are combined, not separately estimated.",
+      "No human or LLM hypothesis is tested by this classical batch."
+    ]
+  },
+  "networks": {
+    "lattice_clustering": 0.3999999999999991,
+    "random_clustering_mean": 0.03393750000000002,
+    "random_clustering_min": 0.020312500000000008,
+    "random_clustering_max": 0.05468750000000002,
+    "accepted_connected_count": 50,
+    "unique_random_topologies": 50,
+    "unique_centers": 43,
+    "candidate_count": 50,
+    "disconnected_rejections": 0
+  }
+}

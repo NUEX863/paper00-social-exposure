@@ -1,0 +1,39 @@
+{
+  "experiment_id": "a20_batch_v2",
+  "n_trials": 50,
+  "master_seed": 20261010,
+  "base_lattice_snapshot": "runs/network_checks/lattice_60135656c8d0826348cda5a2ac57eae7881997c609639974c07ed0b8267913e0.json",
+  "rewiring": {
+    "swaps_per_edge": 10,
+    "max_tries_per_swap": 100,
+    "connectivity_policy": "require_connected_with_logged_rejection",
+    "max_graph_candidates": 100
+  },
+  "initial_adopters": {
+    "strategy": "seed_neighborhood",
+    "center_sampling": "uniform_with_replacement",
+    "pair_center_across_networks": true
+  },
+  "random_streams": {
+    "purposes": [
+      "graph",
+      "center",
+      "ic_lattice",
+      "ic_random"
+    ],
+    "seed_derivation": "sha256_first16_hex",
+    "graph_retry_purpose_template": "graph_attempt_{attempt}"
+  },
+  "ic": {
+    "p": 0.2
+  },
+  "threshold": {
+    "adopted_neighbors_required": 2
+  },
+  "update_mode": "synchronous",
+  "stop_condition": "no_new_adopters",
+  "history": {
+    "include_initial_state": true,
+    "include_terminal_no_growth_round": false
+  }
+}

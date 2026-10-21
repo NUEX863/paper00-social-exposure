@@ -1,0 +1,24 @@
+{
+  "row": {
+    "request_id": "support:p035_R2_5:sampling:4",
+    "prompt_id": "p035_R2_5",
+    "mode": "sampling",
+    "repeat": 4,
+    "seed": 1283210798
+  },
+  "prompt_id": "p035_R2_5",
+  "persona_id": "p035",
+  "representation": "R2",
+  "k": 5,
+  "kind": "support",
+  "readout": {
+    "strict_class": "Yes",
+    "semantic_class": "Yes",
+    "strict_format_valid": true,
+    "response_eligible": true,
+    "punctuation_only_recovery": false
+  },
+  "token_score": null,
+  "wall_seconds": 0.30884750000041095,
+  "context": null
+}

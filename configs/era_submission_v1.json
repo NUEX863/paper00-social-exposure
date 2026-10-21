@@ -1,0 +1,184 @@
+{
+  "version": "era_submission_v1",
+  "date_local": "2026-10-18",
+  "timezone": "Asia/Shanghai",
+  "question": "How do controlled social-exposure descriptions and synthetic persona paragraphs change LLM decisions, and what network predictions follow under an explicitly defined simulation policy?",
+  "claim_limit": "Human-inspired conditional behavioral audit, not a matched replication of F14 or a validation of human adoption probabilities. Novelty is pending focused related-work review.",
+  "provenance": {
+    "execution_changes": [
+      "Separate R2 unspecified/tied/untied to avoid confounding format with relationship information.",
+      "One deduplicated P0 control per condition, with 100 samples rather than pseudo-replicating an absent persona.",
+      "Add no-information separately from known zero; add k=4..6 for the selected R1 bridge design.",
+      "Five samples per P1 prompt; primary behavioral frequency separated from token score; two held-out amounts.",
+      "No claim of complete original ERA, B-1, B-2, B-3, E1-E5, or RCA."
+    ],
+    "historical_results": "Existing 4B pilots motivated this design. They are development evidence, never pooled as new observations. Main item is not held out."
+  },
+  "models": {
+    "qwen3_8b": {
+      "intended_weights": "Qwen/Qwen3-8B",
+      "thinking": false,
+      "local_tag": null,
+      "digest": null
+    },
+    "mistral7b_v03": {
+      "intended_weights": "mistralai/Mistral-7B-Instruct-v0.3",
+      "thinking": "not applicable unless backend requires a flag",
+      "local_tag": null,
+      "digest": null
+    }
+  },
+  "design": {
+    "P1_count_full": 100,
+    "P1_count_compact": 50,
+    "P0": "one shared no-persona control per R1/no-information prompt",
+    "wordings": 3,
+    "doses_core": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "friend_count": 6,
+    "R2_relation": "Unspecified for the format comparison; explicit tied/untied only in separate k=2 cells.",
+    "no_info": "No information about adoption, not k=0; one per persona/item/wording, shared across R1/R2 comparisons.",
+    "heldout_persona_ids": [
+      "p035",
+      "p001",
+      "p041",
+      "p047",
+      "p046",
+      "p033",
+      "p026",
+      "p050",
+      "p018",
+      "p043",
+      "p044",
+      "p014",
+      "p028",
+      "p039",
+      "p006",
+      "p022",
+      "p042",
+      "p024",
+      "p021",
+      "p005"
+    ],
+    "heldout_scope": "Two new data amounts, 20 fixed personas, w1/R1 only. This tests within-S1 item transfer, not new domains or unseen personas."
+  },
+  "modules": {
+    "core": {
+      "prompts": 3315,
+      "calls_full_two_models": 42630,
+      "required": true
+    },
+    "bridge_support": {
+      "prompts": 303,
+      "calls_full_two_models": 4206,
+      "required": "Before any degree-six R1 macro projection"
+    },
+    "heldout_items": {
+      "prompts": 200,
+      "calls_full_two_models": 2400,
+      "required": "Before a within-S1 transfer claim"
+    }
+  },
+  "budget": {
+    "full_two_models": {
+      "core": 42630,
+      "heldout_items": 2400,
+      "bridge_support": 4206
+    },
+    "full_total": 49236,
+    "compact_two_models": {
+      "core": 21330,
+      "heldout_items": 2400,
+      "bridge_support": 2106
+    },
+    "compact_total": 25836,
+    "estimation": "Sum per-model call count times representative measured per-call time, plus measured loading overhead and 30% planning margin. Record estimate separately from actual costs.",
+    "power": "No claim of power from these counts alone. Effects with wide intervals are inconclusive; no unplanned optional stopping."
+  },
+  "generation": {
+    "endpoint": "/api/chat",
+    "base_url": "http://127.0.0.1:11434",
+    "stream": false,
+    "context": "Fresh one-message context per decision; no conversation history, external tools, RAG, or memories. Pretraining knowledge cannot be removed.",
+    "options_common": {
+      "num_ctx": 4096,
+      "num_predict": 512,
+      "top_k": 0,
+      "top_p": 1,
+      "min_p": 0,
+      "repeat_penalty": 1,
+      "presence_penalty": 0,
+      "frequency_penalty": 0
+    },
+    "temperature_logprob": 1.0,
+    "temperature_sampling": 0.7,
+    "top_logprobs": 20,
+    "P1_sampling_per_prompt": 5,
+    "P0_sampling_per_prompt_full": 100,
+    "P0_sampling_per_prompt_compact": 50,
+    "ordering": "Run one model at a time for memory. Within each approved module/model preserve shuffled manifest order; never select conditions by interim answers.",
+    "retry": "No retry for an invalid semantic response. Transport errors retained; pause after three consecutive errors and resume only missing requests after fixing the cause, recording attempts.",
+    "readout_policy": "configs/era_readout_policy_v1.json"
+  },
+  "statistics": {
+    "primary": "T=0.7 semantic Yes frequency on a fixed prompt distribution; retain Yes/No/invalid/error/unattempted separately. Equal P1/persona and wording weights.",
+    "secondary": "T=1 exact-label first-token score, raw label mass, candidate coverage and strict-format compliance; never combine it with sampling as equivalent Bernoulli observations.",
+    "estimands": [
+      "P(k)",
+      "P(no-information)",
+      "P(1)-P(0)",
+      "S2",
+      "S3",
+      "rho",
+      "D=P_R2_untied(2)-P_R2_tied(2)",
+      "Delta_R=S2_R2_unspecified-S2_R1",
+      "persona paragraph contrast and its interaction with k",
+      "persona heterogeneity"
+    ],
+    "independent_units": "Synthetic persona blocks for P1; the same persona block retained across doses, wording, representation and model. P0 has no persona clusters: independently resample its unique call draws per cell and reuse each draw across contrasts.",
+    "intervals": "2000 paired persona-block bootstrap resamples; wording treated as three fixed conditions, not a sampled universe of language. For P0/P1 differences jointly resample P1 blocks and P0 calls. Macro uses paired network/trial blocks.",
+    "boundary_cases": "All-identical draws can collapse a nonparametric interval; show boundary-aware binomial uncertainty conditional on fixed prompts and do not claim zero probability or proven equality. Synthetic persona intervals do not cover real humans.",
+    "primary_test_family": "Eight prespecified two-sided contrasts: per model S2_R1, S2_R2_unspecified, Delta_R, and the P1-minus-P0 difference in [P(1)-P(0)] under R1. Holm correction within this family; effect sizes and pointwise 95% CIs also shown. Other metrics exploratory with clearly labeled CIs.",
+    "testing_method": "Centered paired cluster-bootstrap test for non-boundary estimable contrasts; no inferential p-value when bootstrap degenerates or statistic is undefined. Record unavailable rather than report artificial p=0.",
+    "rho_guard": "Undefined/unstable when abs(P1-P0)<0.02 or its 95% CI includes zero; do not rank mechanisms using that ratio.",
+    "IC_guard": "Plug-in beta and S2/S3 only interpreted as independent-adoption diagnostics when P0<1-1e-6 and 0<=beta<=1. Otherwise report non-admissible IC baseline, dose decrements, and constrained-fit residuals without clamping observed data.",
+    "models": {
+      "M_IC": "p0+(1-p0)*(1-(1-beta)^k), p0,beta in [0,1]",
+      "M_LIN": "p0+(1-p0)*alpha*k/6, p0,alpha in [0,1]",
+      "M_THR": "p0+(1-p0)*(sigmoid((k-tau)/s)-sigmoid(-tau/s))/(1-sigmoid(-tau/s)), 0<=p0<=1, 0<=tau<=6, 0.1<=s<=5; reparameterized so p(0)=p0",
+      "M_CAT": "Independent probability at each measured dose; nonmonotone reference, not a contagion mechanism."
+    },
+    "comparison": "Fit trial-level binary sampling by binomial maximum likelihood per model/representation, core doses only and fixed wordings. BIC counts sampling outcomes, not score rows; five-fold persona-grouped CV keeps every row of each person together. Compare constrained candidates to M_CAT and residuals, not merely to each other. Boundary/saturation fits are flagged; don't infer per-person thresholds from five draws or claim compressed human heterogeneity.",
+    "missingness": "Report planned-denominator Yes rates with unresolved bounds; no missing=No. Fit valid binary outcomes transparently, with all-invalid-as-Yes/No sensitivity. A mechanism claim must survive both or remain inconclusive. If >1% core replies unresolved, pause inferential claims and diagnose without repairing historical replies.",
+    "robustness": "Strict versus punctuation-tolerant readout; each wording separately and leave-one-wording-out; fixed held-out amounts after main analysis frozen. No result-guided paraphrase deletion."
+  },
+  "reproducibility": [
+    "model/version/digest/quantization/template",
+    "prompt/config hashes",
+    "git hash and dirty status plus source snapshots",
+    "all seeds",
+    "call/attempt/token counts",
+    "wall-clock and hardware",
+    "GPU-hours/cost null if unmeasured",
+    "new immutable run directory"
+  ],
+  "files": {
+    "personas": "prompts/era_submission_v1_personas.json",
+    "items": "prompts/era_submission_v1_items.json",
+    "prompts": "prompts/era_submission_v1.jsonl",
+    "manifest": "configs/era_submission_v1_manifest.jsonl"
+  },
+  "artifact_sha256": {
+    "prompts/era_submission_v1_personas.json": "665aed82939c02ae30ae191c8143ce2791037abc811a61bc448b231ef2667b78",
+    "prompts/era_submission_v1_items.json": "2f42d194ef8e540564bc9e4ddbcd64d9f1b3013589b20d77e680c5e9c14b174e",
+    "prompts/era_submission_v1.jsonl": "35b18b2c42682739e81b4c9589bb6b7619fc07f14b1859c635666c104b9e77d5",
+    "configs/era_submission_v1_manifest.jsonl": "9e5445e9e4e59b81cdc236add266c3de5ca6b790e0874d7e5a11b20787a0588b"
+  },
+  "source_sha256": {
+    "configs/era_readout_policy_v1.json": "f55ee9cdbac2c6ef44bab44fc771e38d4501cb2327f7529b93c2b7a13e3ad0f7"
+  }
+}

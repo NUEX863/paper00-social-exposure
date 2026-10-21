@@ -1,0 +1,26 @@
+{
+  "version": "era-readout-v1",
+  "scope": "Prospective measurement policy; historical runs retain their original scoring. Reanalysis is exploratory sensitivity analysis.",
+  "strict_labels": {"Yes": "Yes", "No": "No"},
+  "semantic_labels": {"Yes": "Yes", "No": "No", "Yes.": "Yes", "No.": "No"},
+  "whitespace": "Strip leading and trailing whitespace only.",
+  "response_requirements": "done=true, done_reason=stop, no visible thinking, no response error, string content",
+  "unrecognized": "Keep invalid; do not extract a label from explanations, change case, retry, or count invalid as No.",
+  "sampling": {
+    "primary_prospective_measure": "Semantic Yes count / all planned sampling calls, accompanied by unresolved count and ambiguity bounds if any unresolved calls exist.",
+    "secondary_measure": "Strict format compliance and strict Yes count / all planned calls.",
+    "missingness": "Keep invalid, transport errors and unattempted calls distinct. Bounds are [Yes/N, (Yes+unresolved)/N], not confidence intervals.",
+    "temperature": 0.7,
+    "limit": "Five samples per cell are exploratory; 0/5 does not establish zero probability. Formal sampling counts and statistical estimands must be frozen before formal experiments."
+  },
+  "token_score": {
+    "name": "first_token_exact_label_yes_score",
+    "definition": "exp(logp_Yes)/(exp(logp_Yes)+exp(logp_No)) at the first recorded output token, requiring both exact labels and first-token alignment",
+    "additional_outputs": ["logp_Yes", "logp_No", "exact_label_mass", "returned_candidate_mass", "candidate_count"],
+    "missing_label": "Unavailable; never replace missing label probability with zero.",
+    "semantics": "Conditional relative mass of exact first-token Yes vs No under the pre-sampling model distribution, based on the pinned source audit.",
+    "not_equivalent_to": ["full-answer semantic Yes probability", "T=0.7 sampling frequency", "human adoption probability"],
+    "limits": "Top-20 candidates are not the complete vocabulary. Whitespace/case token variants are not silently merged. Source verification does not establish numerical repeatability across executions or backends."
+  },
+  "integration": "Separate policy/parser available; historical experiment runners and snapshots are unchanged. Explicitly bind this policy into the next approved experiment configuration."
+}

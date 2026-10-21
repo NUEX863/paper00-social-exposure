@@ -1,0 +1,43 @@
+{
+  "version": "era-readout-v2",
+  "scope": "Prospective formal-core amendment; primary sampling whitelist unchanged. Historic runs unchanged.",
+  "strict_labels": {
+    "Yes": "Yes",
+    "No": "No"
+  },
+  "semantic_labels": {
+    "Yes": "Yes",
+    "No": "No",
+    "Yes.": "Yes",
+    "No.": "No"
+  },
+  "whitespace": "Strip leading and trailing whitespace only.",
+  "response_requirements": "done=true, done_reason=stop, no visible thinking, no response error, string content",
+  "unrecognized": "Keep invalid; do not extract a label from explanations, change case, retry, or count invalid as No.",
+  "sampling": {
+    "primary_prospective_measure": "Semantic Yes count / all planned sampling calls, accompanied by unresolved count and ambiguity bounds if any unresolved calls exist.",
+    "secondary_measure": "Strict format compliance and strict Yes count / all planned calls.",
+    "missingness": "Keep invalid, transport errors and unattempted calls distinct. Bounds are [Yes/N, (Yes+unresolved)/N], not confidence intervals.",
+    "temperature": 0.7,
+    "limit": "Five samples per cell are exploratory; 0/5 does not establish zero probability. Formal sampling counts and statistical estimands must be frozen before formal experiments."
+  },
+  "token_score": {
+    "name": "native_label_yes_score",
+    "exact_pair_by_model_slot": {
+      "qwen3_8b": {
+        "Yes": "Yes",
+        "No": "No"
+      },
+      "mistral7b_v03": {
+        "Yes": " Yes",
+        "No": " No"
+      }
+    },
+    "definition": "First-position exact pair conditional mass exp(logp_yes)/(exp(logp_yes)+exp(logp_no)); preserve a legacy unspaced diagnostic separately.",
+    "eligibility": "Complete non-thinking response, aligned first token belonging to the frozen pair, both labels individually present once in valid top candidates.",
+    "missing": "Unavailable, not zero. Never strip/merge candidate token spellings or choose labels adaptively per answer.",
+    "reason": "Engineering timing observed Mistral space-prefixed Yes/No tokens; freeze model-specific spelling before formal responses.",
+    "interpretation": "Secondary model-specific token-pair score. Not the T=0.7 sampling probability, a whole-answer probability, or a human probability. Earlier source audit was 0.40.3, current backend 0.40.5 is recorded without claiming a new source audit."
+  },
+  "integration": "Separate policy/parser available; historical experiment runners and snapshots are unchanged. Explicitly bind this policy into the next approved experiment configuration."
+}

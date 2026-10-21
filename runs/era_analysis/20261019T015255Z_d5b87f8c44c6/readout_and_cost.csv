@@ -1,0 +1,5 @@
+model,mode,planned,valid,invalid,strict_invalid,token_scores_available,wall_seconds,input_tokens,output_tokens
+mistral7b_v03,logprob,3315,3286,29,29,3289,741.0323479999079,694987,9676
+mistral7b_v03,sampling,18000,17986,14,15,0,3416.080201299759,3651255,37566
+qwen3_8b,logprob,3315,3315,0,1,3315,848.8050520000288,639782,6631
+qwen3_8b,sampling,18000,18000,0,0,0,4586.134856999948,3375135,36000

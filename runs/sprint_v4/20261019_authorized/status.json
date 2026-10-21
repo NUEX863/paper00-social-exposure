@@ -1,0 +1,12 @@
+{
+  "status": "COMPLETED",
+  "attempted": 909,
+  "completed": 909,
+  "support": 432,
+  "full_llm": 477,
+  "invalid": 0,
+  "input_tokens": 180587,
+  "output_tokens": 1818,
+  "request_wall_seconds": 239.56302050010345,
+  "elapsed_seconds": 562.3389018000016
+}

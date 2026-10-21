@@ -1,0 +1,29 @@
+{
+  "row": {
+    "request_id": "full:1:lattice:R2:2:42",
+    "prompt_id": "p035_R2_2",
+    "seed": 3602472143,
+    "mode": "sampling"
+  },
+  "prompt_id": "p035_R2_2",
+  "persona_id": "p035",
+  "representation": "R2",
+  "k": 2,
+  "kind": "full_llm",
+  "readout": {
+    "strict_class": "Yes",
+    "semantic_class": "Yes",
+    "strict_format_valid": true,
+    "response_eligible": true,
+    "punctuation_only_recovery": false
+  },
+  "token_score": null,
+  "wall_seconds": 0.17339690000153496,
+  "context": {
+    "trial": 1,
+    "network": "lattice",
+    "round": 2,
+    "node": 42,
+    "k": 2
+  }
+}

@@ -1,0 +1,277 @@
+{
+  "row": {
+    "request_id": "support:p043_R1_5:logprob:0",
+    "prompt_id": "p043_R1_5",
+    "mode": "logprob",
+    "repeat": 0,
+    "seed": 3992669328
+  },
+  "prompt_id": "p043_R1_5",
+  "persona_id": "p043",
+  "representation": "R1",
+  "k": 5,
+  "kind": "support",
+  "readout": {
+    "strict_class": "Yes",
+    "semantic_class": "Yes",
+    "strict_format_valid": true,
+    "response_eligible": true,
+    "punctuation_only_recovery": false
+  },
+  "token_score": {
+    "policy_version": "era-readout-v2",
+    "exact_token_pair": {
+      "Yes": "Yes",
+      "No": "No"
+    },
+    "native_label_yes_score": 0.9999999865341871,
+    "native_label_mass": 1.0000000134658131,
+    "legacy_exact_no_space": {
+      "exact_label_yes_score": 0.9999999865341871,
+      "exact_label_mass": 1.0000000134658131,
+      "returned_candidate_mass": 1.0000000134676599,
+      "checks": {
+        "status": "PASS",
+        "response_checks": {
+          "answer_exact_yes_no": true,
+          "no_visible_thinking": true,
+          "finished_without_truncation": true,
+          "done_reason": "stop",
+          "pass": true,
+          "limit": "One response cannot validate all prompts or prove absence of internal reasoning."
+        },
+        "logprobs_present": true,
+        "token_records_valid": true,
+        "record_count": 1,
+        "first_recorded_token": "Yes",
+        "first_token_matches_content_prefix": true,
+        "first_position_alternatives_valid": true,
+        "first_position_alternatives": [
+          {
+            "token": "Yes",
+            "logprob": 0,
+            "bytes": [
+              89,
+              101,
+              115
+            ]
+          },
+          {
+            "token": "No",
+            "logprob": -18.123111724853516,
+            "bytes": [
+              78,
+              111
+            ]
+          },
+          {
+            "token": " Yes",
+            "logprob": -27.642410278320312,
+            "bytes": [
+              32,
+              89,
+              101,
+              115
+            ]
+          },
+          {
+            "token": "_yes",
+            "logprob": -28.339412689208984,
+            "bytes": [
+              95,
+              121,
+              101,
+              115
+            ]
+          },
+          {
+            "token": "yes",
+            "logprob": -28.981204986572266,
+            "bytes": [
+              121,
+              101,
+              115
+            ]
+          },
+          {
+            "token": "**",
+            "logprob": -30.02771759033203,
+            "bytes": [
+              42,
+              42
+            ]
+          },
+          {
+            "token": "YES",
+            "logprob": -32.441654205322266,
+            "bytes": [
+              89,
+              69,
+              83
+            ]
+          },
+          {
+            "token": ".Yes",
+            "logprob": -32.562652587890625,
+            "bytes": [
+              46,
+              89,
+              101,
+              115
+            ]
+          },
+          {
+            "token": "_YES",
+            "logprob": -37.014060974121094,
+            "bytes": [
+              95,
+              89,
+              69,
+              83
+            ]
+          },
+          {
+            "token": ",Yes",
+            "logprob": -37.12663650512695,
+            "bytes": [
+              44,
+              89,
+              101,
+              115
+            ]
+          },
+          {
+            "token": "\"Yes",
+            "logprob": -38.123104095458984,
+            "bytes": [
+              34,
+              89,
+              101,
+              115
+            ]
+          },
+          {
+            "token": " yes",
+            "logprob": -38.32675552368164,
+            "bytes": [
+              32,
+              121,
+              101,
+              115
+            ]
+          },
+          {
+            "token": "Yeah",
+            "logprob": -38.5806770324707,
+            "bytes": [
+              89,
+              101,
+              97,
+              104
+            ]
+          },
+          {
+            "token": "“Yes",
+            "logprob": -41.02962875366211,
+            "bytes": [
+              226,
+              128,
+              156,
+              89,
+              101,
+              115
+            ]
+          },
+          {
+            "token": "Not",
+            "logprob": -41.393436431884766,
+            "bytes": [
+              78,
+              111,
+              116
+            ]
+          },
+          {
+            "token": ".YesNo",
+            "logprob": -42.09480285644531,
+            "bytes": [
+              46,
+              89,
+              101,
+              115,
+              78,
+              111
+            ]
+          },
+          {
+            "token": "You",
+            "logprob": -42.19133758544922,
+            "bytes": [
+              89,
+              111,
+              117
+            ]
+          },
+          {
+            "token": "Yep",
+            "logprob": -42.48443603515625,
+            "bytes": [
+              89,
+              101,
+              112
+            ]
+          },
+          {
+            "token": "_No",
+            "logprob": -42.785400390625,
+            "bytes": [
+              95,
+              78,
+              111
+            ]
+          },
+          {
+            "token": "Y",
+            "logprob": -42.864585876464844,
+            "bytes": [
+              89
+            ]
+          }
+        ],
+        "exact_label_entries": {
+          "Yes": [
+            {
+              "token": "Yes",
+              "logprob": 0,
+              "bytes": [
+                89,
+                101,
+                115
+              ]
+            }
+          ],
+          "No": [
+            {
+              "token": "No",
+              "logprob": -18.123111724853516,
+              "bytes": [
+                78,
+                111
+              ]
+            }
+          ]
+        },
+        "both_exact_labels_available": true,
+        "adoption_probability": null,
+        "limit": "Field-level capability only; no probability normalization, label repair, or adoption estimate. Missing labels are unknown, not zero."
+      },
+      "logp_yes": 0,
+      "logp_no": -18.123111724853516
+    },
+    "limit": "Conditional first-token pair score, not full-answer or human probability; model-specific label conventions.",
+    "logp_yes": 0,
+    "logp_no": -18.123111724853516
+  },
+  "wall_seconds": 0.26828410000234726,
+  "context": null
+}

@@ -1,0 +1,21 @@
+{
+  "version": "era_submission_v1",
+  "items": [
+    {
+      "item_id": "s1_main",
+      "data_mb": 500,
+      "role": "Main item; historical pilot motivated this design."
+    },
+    {
+      "item_id": "s1_holdout_low",
+      "data_mb": 100,
+      "role": "Held-out amount; no prompt or model selection using these outputs."
+    },
+    {
+      "item_id": "s1_holdout_high",
+      "data_mb": 2000,
+      "role": "Held-out amount; no prompt or model selection using these outputs."
+    }
+  ],
+  "note": "Synthetic design choices, not F14 product reconstruction."
+}

@@ -1,0 +1,59 @@
+{
+  "version": "era-heldout-analysis-v1",
+  "frozen_before_heldout_responses": "2026-10-19T07:25:24.677012+00:00",
+  "core_observations": "runs/era_analysis/20261019T015255Z_d5b87f8c44c6/observations.csv",
+  "core_observations_sha256": "527c3d621564a8d1bd68596920fc9400c056ef2022a88cf813ad532240ee8dc0",
+  "persona_ids": [
+    "p035",
+    "p001",
+    "p041",
+    "p047",
+    "p046",
+    "p033",
+    "p026",
+    "p050",
+    "p018",
+    "p043",
+    "p044",
+    "p014",
+    "p028",
+    "p039",
+    "p006",
+    "p022",
+    "p042",
+    "p024",
+    "p021",
+    "p005"
+  ],
+  "representation": "R1",
+  "wording": "w1",
+  "amounts_mb": [
+    100,
+    500,
+    2000
+  ],
+  "conditions": [
+    "NO_INFO",
+    "R1_0",
+    "R1_1",
+    "R1_2",
+    "R1_3"
+  ],
+  "bootstrap": {
+    "resamples": 2000,
+    "seed": 2026101902,
+    "unit": "20 paired persona blocks shared across amounts and models"
+  },
+  "sampling": "Equal persona weights; five draws per cell. Valid-conditional rates plus planned-denominator unknown-answer bounds.",
+  "diagnostics": "P(k), known-zero versus no-info, increments, S2/S3 with core admissibility guard, rho with denominator guard.",
+  "comparisons": "20 exploratory amount-minus-500MB contrasts: 2 models x 2 amounts x 5 conditions; centered bootstrap and Holm. Undefined/degenerate tests remain unavailable, not p=0.",
+  "boundary": "All-identical cell bootstrap does not prove probability zero/one or equivalence; show conditional exact-binomial bounds.",
+  "sensitivity": "Strict labels and all-invalid-as-Yes/No. Do not pool top-token scores with sampling. Pause inference if invalid new replies exceed 1%.",
+  "limits": [
+    "Within one synthetic coupon scenario, two held-out amounts; no cross-domain or unseen-persona validation.",
+    "R1/w1 and P1 only; cannot replicate R2 representation effects, three-wording stability, P1/P0 interaction or D.",
+    "Matched 500MB controls reuse only the same 20 core personas and w1; not the full 100-persona average.",
+    "All-success and unstable-IC cases remain uncertain; no equivalence or human-calibration claim.",
+    "No prompt tuning, outcome-dependent stopping, bridge k=4..6, macro run or RCA in this task."
+  ]
+}
